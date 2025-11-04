@@ -1,0 +1,72 @@
+format = '''
+$python$directory$character'''
+
+right_format = '''$status$all'''
+
+palette = 'colors'
+
+[palettes.colors]
+color1 = '{{colors.primary_fixed_dim.default.hex}}'
+color2 = '{{colors.on_primary.default.hex}}'
+color3 = '{{colors.on_surface_variant.default.hex}}'
+color4 = '{{colors.surface_container.default.hex}}'
+color5 = '{{colors.on_primary.default.hex}}'
+color6 = '{{colors.surface_dim.default.hex}}'
+color7 = '{{colors.surface.default.hex}}'
+color8 = '{{colors.primary.default.hex}}'
+color9 = '{{colors.tertiary.default.hex}}'
+color10 = '{{colors.error.default.hex}}'
+color11 = '{{colors.secondary.default.hex}}'
+
+# Prompt symbols
+[character]
+success_symbol = "[❯](fg:color10)[❯](fg:color9)[❯](fg:color8)"
+error_symbol = "[❯](fg:color10)[❯](fg:color9)[❯](fg:color8)"
+
+[git_branch]
+format = '[$branch](bold fg:color8) '
+
+[python]
+format = '[$version$virtualenv](fg:color8) '
+pyenv_prefix = 'venv '
+
+[git_status]
+format = '$all_status$ahead_behind'
+ahead = '[⬆](bold fg:color11)'
+behind = '[⬇](bold fg:color11)'
+staged = '[✚](fg:color8)'
+deleted = '[✖](fg:color10)'
+renamed = '[➜](fg:color11)'
+stashed = '[✭](fg:color3)'
+untracked = '[◼](fg:color7)'
+modified = '[✱](fg:color9)'
+conflicted = '[═](fg:color9)'
+diverged = '[⇕](fg:color11)'
+up_to_date = ''
+
+[directory]
+format = '[$path](fg:color3)'
+truncation_length = 1
+truncation_symbol = ""
+fish_style_pwd_dir_length = 1
+
+[cmd_duration]
+format = '[$duration](fg:color3)'
+
+[status]
+disabled = false
+format = '[$symbol$common_meaning$signal_name](fg:color10)'
+symbol = '✘ '
+
+[line_break]
+disabled = true
+
+# Additional modules for the right side
+[rust]
+format = '[$version](fg:color9)'
+
+[nodejs]
+format = '[$version](fg:color9)'
+
+[package]
+format = '[$version](fg:color9)'

@@ -1,0 +1,83 @@
+{
+    "$schema": "./schema.json",
+    "configs": [
+        {
+            "app_name": "Hyprland",
+            "is_folder": true,
+            "source_path": "~/.config/hypr",
+            "laptop_desktop_split": {
+                "split_files": ["config/monitor.conf"]
+            }
+        },
+        {
+            "app_name": "DankMaterialShell",
+            "is_folder": true,
+            "source_path": "~/.config/DankMaterialShell"
+        },
+        {
+            "app_name": "matugen",
+            "is_folder": true,
+            "source_path": "~/.config/matugen"
+        },
+        {
+            "app_name": "alacritty",
+            "is_folder": true,
+            "source_path": "~/.config/alacritty"
+        },
+        {
+            "app_name": "gtk3",
+            "is_folder": true,
+            "source_path": "~/.config/gtk-3.0"
+        },
+        {
+            "app_name": "gtk4",
+            "is_folder": true,
+            "source_path": "~/.config/gtk-4.0"
+        },
+        {
+            "app_name": "Kvantum",
+            "is_folder": true,
+            "source_path": "~/.config/Kvantum"
+        },
+        {
+            "app_name": "kdeglobals",
+            "is_folder": false,
+            "source_path": "~/.config/kdeglobals"
+        },
+        {
+            "app_name": "qt5ct",
+            "is_folder": true,
+            "source_path": "~/.config/qt5ct"
+        },
+        {
+            "app_name": "qt6ct",
+            "is_folder": true,
+            "source_path": "~/.config/qt6ct"
+        },
+        {
+            "app_name": "face",
+            "is_folder": false,
+            "source_path": "~/.face"
+        },
+        {
+            "app_name": "face.icon",
+            "is_folder": false,
+            "source_path": "~/.face.icon"
+        },
+        {
+            "app_name": "zshrc",
+            "is_folder": false,
+            "source_path": "~/.zshrc"
+        },
+        {
+            "app_name": "sddm",
+            "is_folder": false,
+            "source_path": "/etc/sddm.conf"
+        },
+        {
+            "app_name": "sddm.conf.d",
+            "is_folder": true,
+            "source_path": "/etc/sddm.conf.d"
+        }
+    ]
+}

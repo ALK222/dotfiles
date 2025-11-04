@@ -1,0 +1,8 @@
+[Autologin]
+Session=hyprland
+
+[General]
+InputMethod=qtvirtualkeyboard
+GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard,QT_SCREEN_SCALE_FACTORS=2,QT_FONT_DPI=192
+[Theme]
+Current=silent

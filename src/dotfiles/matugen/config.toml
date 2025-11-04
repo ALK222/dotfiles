@@ -1,0 +1,36 @@
+[config]
+
+[templates.alacritty]
+input_path='~/.config/matugen/templates/alacritty.toml'
+output_path='~/.config/alacritty/colors.toml'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/hyprland.conf'
+output_path = '~/.config/hypr/config/color.conf'
+post_hook = 'hyprctl reload'
+
+[templates.qt5ct]
+input_path = '~/.config/matugen/templates/qtct.conf'
+output_path = '~/.config/qt5ct/colors/matugen.conf'
+
+[templates.qt6ct]
+input_path = '~/.config/matugen/templates/qtct.conf'
+output_path = '~/.config/qt6ct/colors/matugen.conf'
+
+[templates.kvantum]
+input_path = '~/.config/matugen/templates/kvantum.kvconfig'
+output_path = '~/.config/Kvantum/Matugen/Matugen.kvconfig'
+post_hook = 'kvantummanager --set Matugen >/dev/null 2>&1 || true'
+
+[templates.starship]
+input_path = '~/.config/matugen/templates/starship.toml'
+output_path = '~/.config/starship.toml'

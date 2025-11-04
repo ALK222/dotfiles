@@ -1,0 +1,84 @@
+# =============================
+#  BASIC SETTINGS
+# =============================
+export EDITOR="nvim"
+export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+
+# History & usability
+export HISTSIZE=5000
+export SAVEHIST=5000
+setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt AUTO_CD
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
+
+# =============================
+#  PLUGIN MANAGEMENT (MANUAL)
+# =============================
+ZSH_PLUGIN_DIR="$HOME/.zsh/plugins"
+
+# Create plugin dir if missing
+mkdir -p $ZSH_PLUGIN_DIR
+
+# Enable completions
+autoload -Uz compinit && compinit
+# Load plugins if available
+[[ -f $ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source $ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -f $ZSH_PLUGIN_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $ZSH_PLUGIN_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f $ZSH_PLUGIN_DIR/zsh-completions/zsh-completions.plugin.zsh ]] && source $ZSH_PLUGIN_DIR/zsh-completions/zsh-completions.plugin.zsh
+[[ -f $ZSH_PLUGIN_DIR/zsh-git.zsh ]] && source $ZSH_PLUGIN_DIR/zsh-git.zsh
+[[ -f $ZSH_PLUGIN_DIR/you-should-use/zsh-you-should-use.plugin.zsh ]] && source $ZSH_PLUGIN_DIR/you-should-use/zsh-you-should-use.plugin.zsh
+[[ -f $ZSH_PLUGIN_DIR/zsh-bat/zsh-bat.plugin.zsh ]] && source $ZSH_PLUGIN_DIR/zsh-bat/zsh-bat.plugin.zsh
+
+# =============================
+#  STARSHIP PROMPT
+# =============================
+eval "$(starship init zsh)"
+
+# =============================
+#  ALIASES
+# =============================
+
+# General
+alias ll='ls -lh --color=auto'
+alias la='ls -A'
+alias l='ls -CF'
+alias c='clear'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias -- -='cd -'
+alias ~='cd ~'
+
+
+# Dev Environment
+alias py='python3'
+alias venv='python3 -m venv .venv && source .venv/bin/activate'
+alias run='cargo run || npm run dev || python3 main.py'
+alias build='cargo build --release || npm run build'
+
+# AI / ML
+alias jn='jupyter notebook'
+alias jl='jupyter lab'
+alias torch='python3 -c "import torch; print(torch.__version__)"'
+
+# Game Dev
+alias godot='~/Applications/Godot.app/Contents/MacOS/Godot'   # adjust for OS
+alias unreal='~/UnrealEngine/Engine/Binaries/Linux/UE4Editor' # adjust for OS
+alias unity='open -a "Unity Hub"'                             # macOS example
+
+# Use modern tools if installed
+if command -v eza >/dev/null 2>&1; then
+  alias ls='eza --icons'
+fi
+if command -v bat >/dev/null 2>&1; then
+  alias cat='bat --style=plain'
+fi
+
+# =============================
+#  PROMPT STYLE / MISC
+# =============================
+# Optional: shorter terminal title
+precmd() { print -Pn "\e]0;%n@%m:%~\a" }

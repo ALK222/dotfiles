@@ -1,0 +1,13 @@
+[Icons]
+Theme=breeze-dark
+
+[KDE]
+ShowDeleteCommand=true
+widgetStyle=qt6ct-style
+
+[PreviewSettings]
+EnableRemoteFolderThumbnail=false
+MaximumRemoteSize=0
+
+[UiSettings]
+ColorScheme=qt6ct
