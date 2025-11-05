@@ -18,24 +18,14 @@ fi
 
 # === FUNCTIONS ===
 
-# Check if a path requires sudo (not writable)
 requires_sudo() {
     local path="$1"
     local dir="$path"
-
-    # If path doesn't exist yet, check its parent directory
-    if [ ! -e "$dir" ]; then
-        dir="$(dirname "$dir")"
-    fi
-
-    if [ -w "$dir" ]; then
-        return 1  # writable, no sudo needed
-    else
-        return 0  # not writable, needs sudo
-    fi
+    [ ! -e "$dir" ] && dir="$(dirname "$dir")"
+    [ -w "$dir" ] || return 0
+    return 1
 }
 
-# Ensure sudo password is cached
 ensure_sudo() {
     if ! sudo -v >/dev/null 2>&1; then
         echo "Elevated permissions required. Please enter your sudo password:"
@@ -51,24 +41,31 @@ restore_single_file() {
     local app_source="$dotfiles_folder/$app_name"
 
     local cp_cmd="cp"
-
     requires_sudo "$source_path" && { ensure_sudo; cp_cmd="sudo cp"; }
 
     if [ -n "$split_config" ]; then
         echo "$split_config" | jq -r '.split_files[]' | while IFS= read -r split_file; do
-            local filename="$(basename "$split_file")"
-            local base_name="${filename%.*}"
-            local extension="${filename##*.}"
-            local split_name="${base_name}-${split_mode}.${extension}"
+            local filename
+            filename="$(basename "$split_file")"
+            local base_name
+            base_name="${filename%.*}"
+            local extension
+            extension="${filename##*.}"
+            local split_name
+            split_name="${base_name}-${split_mode}.${extension}"
 
-            local src_file="$app_source/$split_name"
-            local dest_dir="$(dirname "$source_path/$split_file")"
-            local dest_file="$source_path/$split_file"
+            local src_file
+            src_file="$app_source/$split_name"
+            local dest_dir
+            dest_dir="$(dirname "$source_path/$split_file")"
+            local dest_file
+            dest_file="$source_path/$base_name"
 
             if [ -f "$src_file" ]; then
                 mkdir -p "$dest_dir"
+                # Copy to destination WITHOUT suffix
                 $cp_cmd "$src_file" "$dest_file"
-                echo "Restored split file: $src_file → $dest_file"
+                echo "Restored: $src_file → $dest_file (removed -$split_mode)"
             else
                 echo "Split file not found in dotfiles: $src_file"
             fi
@@ -80,12 +77,15 @@ restore_single_file() {
     fi
 }
 
-# Restore folder (handles split configs)
 restore_folder() {
-    local app_name="$1"
-    local source_path="$2"
-    local split_config="$3"
-    local app_source="$dotfiles_folder/$app_name"
+    local app_name
+    app_name="$1"
+    local source_path
+    source_path="$2"
+    local split_config
+    split_config="$3"
+    local app_source
+    app_source="$dotfiles_folder/$app_name"
 
     if [ ! -d "$app_source" ]; then
         echo "Source folder not found: $app_source"
@@ -94,7 +94,6 @@ restore_folder() {
 
     local cp_cmd="cp -r"
     local mv_cmd="mv"
-
     requires_sudo "$source_path" && { ensure_sudo; cp_cmd="sudo cp -r"; mv_cmd="sudo mv"; }
 
     mkdir -p "$source_path"
@@ -103,19 +102,25 @@ restore_folder() {
 
     if [ -n "$split_config" ]; then
         echo "$split_config" | jq -r '.split_files[]' | while IFS= read -r split_file; do
-            local filename="$(basename "$split_file")"
-            local base_name="${filename%.*}"
-            local extension="${filename##*.}"
-            local split_name="${base_name}-${split_mode}.${extension}"
+            local filename
+            filename="$split_file"
+            local base_name
+            base_name="${filename%.*}"
+            local extension
+            extension="${filename##*.}"
+            local split_name
+            split_name="${base_name}-${split_mode}.${extension}"
 
-            local src_file="$source_path/$split_name"
-            local dest_file="$source_path/$split_file"
+            local src_file
+            src_file="$source_path/$split_name"
+            local dest_file
+            dest_file="$source_path/$filename"
 
             if [ -f "$src_file" ]; then
                 $mv_cmd "$src_file" "$dest_file"
-                echo "Renamed split file: $split_name → $split_file"
+                echo "Renamed: $split_name → $split_file (removed -$split_mode)"
             else
-                echo "Split file missing in restore source: $src_file"
+                echo "Missing split file in restore source: $src_file"
             fi
         done
     fi
@@ -134,9 +139,9 @@ if [ ! -d "$dotfiles_folder" ]; then
 fi
 
 # Process JSON entries
-cat "$json_file" | jq -c '.configs[]' | while IFS= read -r line; do
+< "$json_file" jq -c '.configs[]' | while IFS= read -r line; do
     app_name=$(jq -r '.app_name' <<< "$line")
-    source_path=$(eval echo $(jq -r '.source_path' <<< "$line"))
+    source_path=$(eval echo "$(jq -r '.source_path' <<< "$line")")
     is_folder=$(jq -r '.is_folder' <<< "$line")
     split_config=$(jq -c '.laptop_desktop_split // empty' <<< "$line")
 
@@ -152,4 +157,4 @@ cat "$json_file" | jq -c '.configs[]' | while IFS= read -r line; do
     fi
 done
 
-echo "All configurations restored from '$dotfiles_folder/' for mode: $split_mode."
+echo "✅ All configurations restored from '$dotfiles_folder/' for mode: $split_mode (suffixes removed)."
