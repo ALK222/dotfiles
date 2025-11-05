@@ -82,7 +82,10 @@
         {
             "app_name": "backgrounds",
             "is_folder": true,
-            "source_path": "~/Imágenes/Backgrounds"
+            "source_path": "~/Imágenes/Backgrounds",
+            "laptop_desktop_split": {
+                "split_files": ["Great_Wave.jpg", "Starry_Night.jpg", "Japanese_bridge.jpg"]
+            }
         }
     ]
 }
