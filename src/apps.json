@@ -79,6 +79,11 @@
             "is_folder": true,
             "source_path": "/etc/sddm.conf.d"
         },
+	{
+	    "app_name": "sddm_faces",
+	    "is_folder": true,
+	    "source_path": "/usr/share/sddm/faces"
+	},
         {
             "app_name": "backgrounds",
             "is_folder": true,
