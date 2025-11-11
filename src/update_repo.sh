@@ -18,17 +18,15 @@ fi
 
 # === FUNCTIONS ===
 
-# Check if a path requires sudo
 requires_sudo() {
     local path="$1"
     if [ -r "$path" ]; then
-        return 1  # readable, no sudo needed
+        return 1
     else
-        return 0  # not readable, need sudo
+        return 0
     fi
 }
 
-# Ensure sudo password is cached if needed
 ensure_sudo() {
     if ! sudo -v >/dev/null 2>&1; then
         echo "Elevated permissions required. Please enter your sudo password:"
@@ -36,15 +34,15 @@ ensure_sudo() {
     fi
 }
 
-# Copy single file (with optional split rename)
+# Copy single file (with full preservation)
 copy_single_file() {
     local app_name="$1"
     local source_path="$2"
     local split_config="$3"
     local destination="$dotfiles_folder/$app_name"
-    local cp_cmd="cp"
+    local cp_cmd="cp -a"   # <=== changed from cp -P
 
-    requires_sudo "$source_path" && { ensure_sudo; cp_cmd="sudo cp"; }
+    requires_sudo "$source_path" && { ensure_sudo; cp_cmd="sudo cp -a"; }
 
     mkdir -p "$(dirname "$destination")"
 
@@ -69,15 +67,15 @@ copy_single_file() {
     fi
 }
 
-# Copy folder (copy everything, rename only split files)
+# Copy folder (fully preserve everything)
 copy_folder() {
     local app_name="$1"
     local source_path="$2"
     local split_config="$3"
     local destination="$dotfiles_folder/$app_name"
-    local cp_cmd="cp -r"
+    local cp_cmd="cp -a"   # <=== changed from cp -r
 
-    requires_sudo "$source_path" && { ensure_sudo; cp_cmd="sudo cp -r"; }
+    requires_sudo "$source_path" && { ensure_sudo; cp_cmd="sudo cp -a"; }
 
     mkdir -p "$destination"
     $cp_cmd "$source_path"/. "$destination"
@@ -108,11 +106,9 @@ if [ ! -f "$json_file" ]; then
     exit 1
 fi
 
-# Reset dotfiles folder
 rm -rf "$dotfiles_folder"
 mkdir -p "$dotfiles_folder"
 
-# Process JSON entries
 cat "$json_file" | jq -c '.configs[]' | while IFS= read -r line; do
     app_name=$(jq -r '.app_name' <<< "$line")
     source_path=$(eval echo $(jq -r '.source_path' <<< "$line"))

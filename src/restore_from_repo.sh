@@ -40,30 +40,24 @@ restore_single_file() {
     local split_config="$3"
     local app_source="$dotfiles_folder/$app_name"
 
-    local cp_cmd="cp"
-    requires_sudo "$source_path" && { ensure_sudo; cp_cmd="sudo cp"; }
+    local cp_cmd="cp -a"   # <=== changed from cp
+    requires_sudo "$source_path" && { ensure_sudo; cp_cmd="sudo cp -a"; }
 
     if [ -n "$split_config" ]; then
         echo "$split_config" | jq -r '.split_files[]' | while IFS= read -r split_file; do
             local filename
             filename="$(basename "$split_file")"
-            local base_name
-            base_name="${filename%.*}"
-            local extension
-            extension="${filename##*.}"
-            local split_name
-            split_name="${base_name}-${split_mode}.${extension}"
+            local base_name="${filename%.*}"
+            local extension="${filename##*.}"
+            local split_name="${base_name}-${split_mode}.${extension}"
 
-            local src_file
-            src_file="$app_source/$split_name"
+            local src_file="$app_source/$split_name"
             local dest_dir
             dest_dir="$(dirname "$source_path/$split_file")"
-            local dest_file
-            dest_file="$source_path/$base_name"
+            local dest_file="$source_path/$base_name"
 
             if [ -f "$src_file" ]; then
                 mkdir -p "$dest_dir"
-                # Copy to destination WITHOUT suffix
                 $cp_cmd "$src_file" "$dest_file"
                 echo "Restored: $src_file → $dest_file (removed -$split_mode)"
             else
@@ -77,24 +71,21 @@ restore_single_file() {
     fi
 }
 
+# Restore a folder (preserve all attributes)
 restore_folder() {
-    local app_name
-    app_name="$1"
-    local source_path
-    source_path="$2"
-    local split_config
-    split_config="$3"
-    local app_source
-    app_source="$dotfiles_folder/$app_name"
+    local app_name="$1"
+    local source_path="$2"
+    local split_config="$3"
+    local app_source="$dotfiles_folder/$app_name"
 
     if [ ! -d "$app_source" ]; then
         echo "Source folder not found: $app_source"
         return
     fi
 
-    local cp_cmd="cp -r"
+    local cp_cmd="cp -a"   # <=== changed from cp -r
     local mv_cmd="mv"
-    requires_sudo "$source_path" && { ensure_sudo; cp_cmd="sudo cp -r"; mv_cmd="sudo mv"; }
+    requires_sudo "$source_path" && { ensure_sudo; cp_cmd="sudo cp -a"; mv_cmd="sudo mv"; }
 
     mkdir -p "$source_path"
     $cp_cmd "$app_source"/. "$source_path"
@@ -102,19 +93,13 @@ restore_folder() {
 
     if [ -n "$split_config" ]; then
         echo "$split_config" | jq -r '.split_files[]' | while IFS= read -r split_file; do
-            local filename
-            filename="$split_file"
-            local base_name
-            base_name="${filename%.*}"
-            local extension
-            extension="${filename##*.}"
-            local split_name
-            split_name="${base_name}-${split_mode}.${extension}"
+            local filename="$split_file"
+            local base_name="${filename%.*}"
+            local extension="${filename##*.}"
+            local split_name="${base_name}-${split_mode}.${extension}"
 
-            local src_file
-            src_file="$source_path/$split_name"
-            local dest_file
-            dest_file="$source_path/$filename"
+            local src_file="$source_path/$split_name"
+            local dest_file="$source_path/$filename"
 
             if [ -f "$src_file" ]; then
                 $mv_cmd "$src_file" "$dest_file"
