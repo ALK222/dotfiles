@@ -7,5 +7,12 @@
   },
   "grimblast": {
     "enabled": true
+  },
+  "asusControlCenter": {
+    "enabled": true
+  },
+  "webSearch": {
+    "enabled": true,
+    "searchEngines": []
   }
 }

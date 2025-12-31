@@ -91,6 +91,11 @@
             "app_name": "backgrounds",
             "is_folder": true,
             "source_path": "~/Imágenes/Backgrounds"
-        }
+        },
+	{
+	    "app_name": "custom-scripts",
+	    "is_folder": true,
+	    "source_path": "~/.config/custom-scripts"
+	}
     ]
 }
