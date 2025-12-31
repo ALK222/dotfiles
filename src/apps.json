@@ -93,9 +93,9 @@
             "source_path": "~/Imágenes/Backgrounds"
         },
 	{
-	    "app_name": "custom-scripts",
+	    "app_name": "custom-commands",
 	    "is_folder": true,
-	    "source_path": "~/.config/custom-scripts"
+	    "source_path": "~/.config/custom-commands"
 	}
     ]
 }

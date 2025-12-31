@@ -1,0 +1,56 @@
+#!/usr/bin/bash
+
+# Function to display usage instructions
+usage() {
+    echo "Usage: $(basename "$0") [path/to/folder_or_apk] ..."
+    echo ""
+    echo "Arguments:"
+    echo "  -h, --help    Show this help message"
+    echo "  [path]        Path to an APK file or a directory containing an APK and OBB folder"
+    echo ""
+    exit 0
+}
+
+installDirectory(){
+    local dir="$1"
+    # Find the first subdirectory (the OBB package folder)
+    local obb_folder=$(find "$dir" -maxdepth 1 -type d -not -path "$dir" -print -quit)
+    # Find the first .apk file
+    local apk_file=$(find "$dir" -maxdepth 1 -type f -name "*.apk" -print -quit)
+
+    if [[ -n "$obb_folder" && -n "$apk_file" ]]; then
+        echo "--> Processing: $dir"
+        echo "Pushing OBB folder to device..."
+        # Pushing to Downloads first handles many permission issues
+        adb push "$obb_folder" /sdcard/Download/
+        adb shell "mv /sdcard/Download/$(basename "$obb_folder") /sdcard/Android/obb/"
+        
+        echo "Installing APK..."
+        adb install "$apk_file"
+    else
+        echo "Error: Directory '$dir' must contain one OBB folder and one .apk file."
+    fi
+}
+
+if [[ $# -eq 0 ]]; then
+    usage
+fi
+
+for arg in "$@"; do
+    case "$arg" in
+        -h|--help)
+            usage
+            ;;
+        *)
+            if [[ -d "$arg" ]]; then
+                installDirectory "$arg"
+            elif [[ -f "$arg" ]]; then
+                echo "--> Installing standalone APK: $arg"
+                adb install "$arg"
+            else
+                echo "Error: '$arg' is not a valid file or directory."
+                exit 1
+            fi
+            ;;
+    esac
+done
