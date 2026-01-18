@@ -96,6 +96,11 @@
 	    "app_name": "custom-commands",
 	    "is_folder": true,
 	    "source_path": "~/.config/custom-commands"
-	}
+	},
+    {
+        "app_name": "fastfetch",
+        "is_folder": true,
+        "source_path": "~/.config/fastfetch"
+    }
     ]
 }
