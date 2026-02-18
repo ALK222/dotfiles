@@ -9,10 +9,19 @@
     "enabled": true
   },
   "asusControlCenter": {
-    "enabled": true
+    "enabled": false
   },
   "webSearch": {
     "enabled": true,
     "searchEngines": []
+  },
+  "dankKDEConnect": {
+    "enabled": true
+  },
+  "dankHyprlandWindows": {
+    "enabled": true
+  },
+  "displaySettings": {
+    "enabled": true
   }
 }
