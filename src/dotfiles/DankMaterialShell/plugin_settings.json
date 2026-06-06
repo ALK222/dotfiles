@@ -13,7 +13,8 @@
   },
   "webSearch": {
     "enabled": true,
-    "searchEngines": []
+    "searchEngines": [],
+    "disabledEngines": []
   },
   "dankKDEConnect": {
     "enabled": true,

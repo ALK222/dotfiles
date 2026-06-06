@@ -5,7 +5,7 @@
 -- Initialize a dedicated global theme table
 
 -- Generated Asset Target
-_G.image = "/home/_alk/Imágenes/Backgrounds/Great_Wave-laptop.jpg"
+_G.image = "/home/_alk/Imágenes/Backgrounds/Great_Wave.jpg"
 
 -- Generated Material You Theme Colors
 

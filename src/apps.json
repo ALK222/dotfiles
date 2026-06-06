@@ -6,7 +6,7 @@
             "is_folder": true,
             "source_path": "~/.config/hypr",
             "laptop_desktop_split": {
-                "split_files": ["config/monitor.conf"]
+                "split_files": ["config/monitor.lua"]
             }
         },
         {

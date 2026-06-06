@@ -7,6 +7,7 @@ hl.monitor({
     output = "",            -- Empty string targets any unconfigured display
     mode = "preferred",     -- Automatically chooses native resolution/refresh rate
     position = "auto",      -- Automatically positions next to existing monitors
+    vrr = 1,             -- Enable Variable Refresh Rate (VRR) if supported
     scale = 1.6,            -- 1.6 Fractional scaling
 })
 
@@ -18,9 +19,7 @@ hl.config({
 })
 
 -- Electron-based apps use X11 as default, auto forces native Wayland detection
-hl.env({
-    ELECTRON_OZONE_PLATFORM_HINT = "auto"
-})
+hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 
 -- Adjust GDK_SCALE accordingly if you prefer integer scaling (uncomment to activate)
 -- hl.env({
@@ -28,6 +27,4 @@ hl.env({
 -- })
 
 -- Force Steam Desktop UI scaling to match your 1.6 monitor profile
-hl.env({
-    STEAM_FORCE_DESKTOPUI_SCALING = "1.6"
-})
+hl.env("STEAM_FORCE_DESKTOPUI_SCALING","1.6")

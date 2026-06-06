@@ -4,7 +4,7 @@
 
 require("config/defaults")
 
-function toggleFloat()
+function ToggleFloat()
     hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
 end
 
@@ -17,7 +17,7 @@ hl.bind(mod .. " + RETURN",   hl.dsp.exec_cmd(_G.terminal), { description = "Ope
 hl.bind(mod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(_G.filemanager), { description = "Opens your preferred filemanager (" .. _G.filemanager .. ")" })
 hl.bind(mod .. " + Q",        hl.dsp.window.kill(), { description = "Closes (not kill) current window" })
 hl.bind(mod .. " + SHIFT + M", hl.dsp.exec_cmd("loginctl terminate-user ''"), { description = "Exits Hyprland by terminating the user sessions" })
-hl.bind(mod .. " + SHIFT + V", toggleFloat, { description = "Switches current window between floating and tiling mode" })
+hl.bind(mod .. " + SHIFT + V", ToggleFloat, { description = "Switches current window between floating and tiling mode" })
 hl.bind(mod .. " + V",        hl.dsp.exec_cmd("dms ipc call clipboard toggle"), { description = "Clipboard toggle" })
 hl.bind(mod .. " + SPACE",    hl.dsp.exec_cmd("dms ipc call spotlight toggle"), { description = "Runs your application launcher" })
 hl.bind(mod .. " + SHIFT + F", hl.dsp.window.fullscreen(), { description = "Toggles current window fullscreen mode" })

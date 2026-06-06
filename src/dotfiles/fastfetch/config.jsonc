@@ -1,39 +1,7 @@
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
-  "modules": [
-    "title",
-    "separator",
-    "os",
-    "host",
-    "kernel",
-    "uptime",
-    "packages",
-    "shell",
-    "display",
-    "de",
-    "wm",
-    "wmtheme",
-    "theme",
-    "icons",
-    "font",
-    "cursor",
-    "terminal",
-    "terminalfont",
-    "cpu",
-    "gpu",
-    "memory",
-    "swap",
-    "disk",
-    "localip",
-    "battery",
-    "poweradapter",
-    "locale",
-    "break",
-    "colors"
-  ],
-  "logo": {
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json","logo": {
     "type": "file",
-    "source": "~/.config/fastfetch/*.txt",
+    "source": "~/.config/fastfetch/logos/*.txt",
     "color": {
       "1": "light_red",   // $1 → shell orange
       "2": "light_yellow",  // $2 → snail body (pale yellow)
@@ -42,5 +10,152 @@
       "5": "light_green",
       "6":"black"
     }
-  }
+  },
+  "display": {
+    "separator": " ",
+    "color": {
+      "keys": "blue"
+    }
+  },
+  "modules": [
+    {
+      "type": "os",
+      "key": "System",
+      "format": ""
+    },
+    {
+      "type": "os",
+      "key": "├─ {icon} OS",
+      "format": "{name} {version}"
+    },
+    {
+      "type": "datetime",
+      "key": "├─ {icon} Fetched",
+      "format": "{year}-{month-pretty}-{day-pretty} {hour-pretty}:{minute-pretty}:{second-pretty} {timezone-name}"
+    },
+    {
+      "type": "locale",
+      "key": "├─ {icon} Locale"
+    },
+    {
+      "type": "localip",
+      "key": "├─ {icon} Local IPv4",
+      "showPrefixLen": true,
+      "showIpv4": true,
+      "showIpv6": false,
+      "showMtu": true,
+      "format": ""
+    },
+    {
+      "type": "localip",
+      "key": "├─ {icon} Local IPv6",
+      "showPrefixLen": true,
+      "showIpv4": false,
+      "showIpv6": true,
+      "showMtu": true,
+      "format": ""
+    },
+
+    {
+      "type": "publicip",
+      "key": "├─ {icon} Public IPv4",
+      "ipv6": false,
+      "format": ""
+    },
+    {
+      "type": "publicip",
+      "key": "└─ {icon} Public IPv6",
+      "ipv6": true,
+      "format": ""
+    },
+    {
+      "type": "custom",
+      "format": "{#bright_cyan}Hardware"
+    },
+    {
+      "type": "cpu",
+      "key": "{#bright_cyan}├─ {icon} {#white}CPU",
+      "showPeCoreCount": true
+    },
+    {
+      "type": "gpu",
+      "key": "{#bright_cyan}├─ {icon} {#white}GPU"
+    },
+    {
+      "type": "memory",
+      "key": "{#bright_cyan}├─ {icon} {#white}RAM"
+    },
+    {
+      "type": "swap",
+      "key": "{#bright_cyan}├─ {icon} {#white}SWAP"
+    },
+    {
+      "type": "disk",
+      "key": "{#bright_cyan}└─ {icon} {#white}Disk",
+      "format": "{size-used} / {size-total} ({size-percentage}) - {filesystem}"
+    },
+
+    {
+      "type": "custom",
+      "format": "{#bright_green}Desktop"
+    },
+    {
+      "type": "de",
+      "key": "{#bright_green}├─ {icon} {#white}Desktop"
+    },
+    {
+      "type": "wm",
+      "key": "{#bright_green}├─ {icon} {#white}Session"
+    },
+    {
+      "type": "gpu",
+      "key": "{#bright_green}├─ {icon} {#white}G-Driver",
+      "format": "{driver}"
+    },
+    {
+      "type": "display",
+      "key": "{#bright_green}└─ {icon} {#white}Display",
+      "compactType": "original-with-refresh-rate"
+    },
+    {
+      "type": "custom",
+      "format": "{#bright_yellow}Terminal"
+    },
+    {
+      "type": "shell",
+      "key": "{#bright_yellow}├─ {icon} {#white}Shell"
+    },
+    {
+      "type": "terminal",
+      "key": "{#bright_yellow}├─ {icon} {#white}Terminal"
+    },
+    {
+      "type": "packages",
+      "key": "{#bright_yellow}└─ {icon} {#white}Packages"
+    },
+    {
+      "type": "custom",
+      "format": "{#bright_magenta}Uptime"
+    },
+    {
+      "type": "uptime",
+      "key": "{#bright_magenta}├─ {icon} {#white}Uptime"
+    },
+    {
+      "type": "users",
+      "myselfOnly": true,
+      "keyIcon": "",
+      "key": "{#bright_magenta}├─ {icon} {#white}"
+    },
+    {
+      "type": "disk",
+      "keyIcon": "",
+      "key": "{#bright_magenta}└─ {icon} {#white}OS Age",
+      "folders": "/",
+      "format": "{create-time:10} [{days} days]"
+    },
+
+    "break",
+    "colors"
+  ]
 }
