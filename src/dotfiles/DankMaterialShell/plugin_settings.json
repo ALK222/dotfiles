@@ -16,7 +16,8 @@
     "searchEngines": []
   },
   "dankKDEConnect": {
-    "enabled": true
+    "enabled": true,
+    "selectedDeviceId": "4cadea29f4b94f0d8bf5b28981d80c42"
   },
   "dankHyprlandWindows": {
     "enabled": true

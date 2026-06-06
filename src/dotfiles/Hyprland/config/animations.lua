@@ -1,0 +1,25 @@
+-- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+-- ┃                    Animations Configuration                 ┃
+-- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+-- https://wiki.hyprland.org/Configuring/Animations/
+
+-- Global animation toggle
+hl.config({
+    animations = {
+        enabled = true,
+    },
+})
+
+-- Custom easing curves
+hl.curve("overshot", {
+    type = "bezier",
+    points = { {0.13, 0.99}, {0.29, 1.1} },
+})
+
+-- Animation node definitions
+hl.animation({ leaf = "windowsIn",     enabled = true, speed = 4, bezier = "overshot", style = "slide" })
+hl.animation({ leaf = "windowsOut",    enabled = true, speed = 5, bezier = "default",  style = "popin 80%" })
+hl.animation({ leaf = "border",        enabled = true, speed = 5, bezier = "default" })
+hl.animation({ leaf = "workspacesIn",  enabled = true, speed = 6, bezier = "overshot", style = "slide" })
+hl.animation({ leaf = "workspacesOut", enabled = true, speed = 6, bezier = "overshot", style = "slidefade 80%" })

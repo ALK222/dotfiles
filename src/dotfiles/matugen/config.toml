@@ -14,8 +14,8 @@ input_path = '~/.config/matugen/templates/gtk.css'
 output_path = '~/.config/gtk-4.0/colors.css'
 
 [templates.hyprland]
-input_path = '~/.config/matugen/templates/hyprland.conf'
-output_path = '~/.config/hypr/config/color.conf'
+input_path = '~/.config/matugen/templates/hyprland.lua'
+output_path = '~/.config/hypr/config/color.lua'
 post_hook = 'hyprctl reload'
 
 [templates.qt5ct]
@@ -34,3 +34,6 @@ post_hook = 'kvantummanager --set Matugen >/dev/null 2>&1 || true'
 [templates.starship]
 input_path = '~/.config/matugen/templates/starship.toml'
 output_path = '~/.config/starship.toml'
+[templates.kdeglobals]
+input_path = '~/.config/matugen/templates/kdeglobals.toml'
+output_path = '~/.config/kdeglobals'

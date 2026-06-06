@@ -1,0 +1,21 @@
+[General]
+ColorScheme=Matugen
+Name=Matugen
+
+[Colors:Window]
+BackgroundNormal={{colors.surface_container.default.hex}}
+ForegroundNormal={{colors.on_surface.default.hex}}
+
+[Colors:Button]
+BackgroundNormal={{colors.surface_container_high.default.hex}}
+ForegroundNormal={{colors.on_surface.default.hex}}
+
+[Colors:Header]
+BackgroundNormal={{colors.surface_container_high.default.hex}}
+ForegroundNormal={{colors.on_surface.default.hex}}
+# This specifically fixes the white top bar
+BackgroundAlternate={{colors.surface_container.default.hex}}
+
+[Colors:View]
+BackgroundNormal={{colors.surface_container_lowest.default.hex}}
+ForegroundNormal={{colors.on_surface.default.hex}}
