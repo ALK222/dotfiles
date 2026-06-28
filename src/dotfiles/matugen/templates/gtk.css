@@ -1,22 +1,34 @@
 /*
 * GTK Colors
-* Generated with Matugen
+* Generated with Matugen (Glassmorphism Variant)
 */
 
 @define-color accent_color {{colors.primary_fixed_dim.default.hex}};
 @define-color accent_fg_color {{colors.on_primary_fixed.default.hex}};
 @define-color accent_bg_color {{colors.primary_fixed_dim.default.hex}};
-@define-color window_bg_color {{colors.surface_dim.default.hex}};
+
+/* Main window background (72% opacity for a deep glass pane) */
+@define-color window_bg_color alpha({{colors.surface_container.default.hex}}, 0.72);
 @define-color window_fg_color {{colors.on_surface.default.hex}};
-@define-color headerbar_bg_color {{colors.surface_dim.default.hex}};
+
+/* Headerbars & Top Panels (65% opacity to look distinctly layered) */
+@define-color headerbar_bg_color alpha({{colors.surface_container_high.default.hex}}, 0.65);
 @define-color headerbar_fg_color {{colors.on_surface.default.hex}};
-@define-color popover_bg_color {{colors.surface_dim.default.hex}};
+
+/* Tooltips, dropdown menus, and right-click popovers (Higher opacity for readability) */
+@define-color popover_bg_color alpha({{colors.surface_container_highest.default.hex}}, 0.88);
 @define-color popover_fg_color {{colors.on_surface.default.hex}};
-@define-color view_bg_color {{colors.surface.default.hex}};
+
+/* Text view boxes and item lists (Slightly cleaner backdrop) */
+@define-color view_bg_color alpha({{colors.surface_dim.default.hex}}, 0.55);
 @define-color view_fg_color {{colors.on_surface.default.hex}};
-@define-color card_bg_color {{colors.surface.default.hex}};
+
+/* UI Cards and content blocks */
+@define-color card_bg_color alpha({{colors.surface_container_low.default.hex}}, 0.60);
 @define-color card_fg_color {{colors.on_surface.default.hex}};
+
+/* Sidebar inheritance rules */
 @define-color sidebar_bg_color @window_bg_color;
 @define-color sidebar_fg_color @window_fg_color;
-@define-color sidebar_border_color @window_bg_color;
+@define-color sidebar_border_color alpha({{colors.outline_variant.default.hex}}, 0.25);
 @define-color sidebar_backdrop_color @window_bg_color;

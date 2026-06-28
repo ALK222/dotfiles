@@ -2,12 +2,6 @@
 -- ┃ Windowrules Configuration (Lua Syntax)                      ┃
 -- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
--- --- Center Fullscreen Logic ---
-hl.window_rule({
-    name = "center-fullscreen",
-    match = { fullscreen = true },
-    center = true,
-})
 
 -- --- Float Necessary Windows ---
 hl.window_rule({ match = { class = "^(org.pulseaudio.pavucontrol)$" }, float = true })
@@ -22,11 +16,6 @@ hl.window_rule({ match = { class = "^(CachyOSHello)$" }, float = true })
 hl.window_rule({ match = { class = "^(zenity)$" }, float = true })
 hl.window_rule({ match = { class = "^()$", title = "^(Steam - Self Updater)$" }, float = true })
 
--- --- Opacity Rules ---
-hl.window_rule({ match = { class = "^(thunar|nemo)$" }, opacity = 0.92 })
-hl.window_rule({ match = { class = "^(discord|armcord|webcord)$" }, opacity = 0.96 })
-hl.window_rule({ match = { title = "^(QQ|Telegram)$" }, opacity = 0.95 })
-hl.window_rule({ match = { title = "^(NetEase Cloud Music Gtk4)$" }, opacity = 0.95 })
 
 -- --- General Window Rules ---
 -- Picture-in-Picture specific
@@ -71,7 +60,6 @@ hl.window_rule({
     border_size = 3,
     rounding = 4,
 })
-
 -- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 -- ┃ Workspace Rules                                             ┃
 -- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
@@ -82,21 +70,43 @@ hl.workspace_rule({workspace = "f[1]", gaps_out = 5, gaps_in = 3})
 -- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 -- ┃ Layer Rules                                                 ┃
 -- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-
--- Slide top animation for the logout dialog
-hl.layer_rule({ 
-    match = { namespace = "logout_dialog" }, 
-    animation = "slide top" 
+hl.config({
+    decoration = {
+        blur = {
+            enabled = true,
+            size = 1,
+            passes = 2,
+            xray = false,
+            -- Tweaks for more transparency / glass effect:
+            vibrancy = 0.20,       -- High values give a more colorful "glass" feel
+            vibrancy_darkness = 0.20,
+            noise = 0.015,         -- Very subtle noise prevents pure color banding
+        }
+    }
 })
-
--- Slide down animation for waybar
+-- Glassmorphism for Rofi
 hl.layer_rule({ 
-    match = { namespace = "waybar" }, 
+    match = { namespace = "rofi" }, 
+    blur = true,
+    ignore_alpha = 0.1,
     animation = "slide down" 
 })
 
--- Fade animation for your wallpaper
+-- Glassmorphism for Wlogout
 hl.layer_rule({ 
-    match = { namespace = "wallpaper" }, 
-    animation = "fade 50%" 
+    match = { namespace = "logout_dialog" }, 
+    blur = true,
+    ignore_alpha = 0.1
+})
+
+hl.layer_rule({ 
+    match = { namespace = "waybar" }, 
+    blur = true,
+    ignore_alpha = 0.1
+})
+
+hl.layer_rule({ 
+    match = { namespace = "swayosd" }, 
+    blur = true,
+    ignore_alpha = 0.1
 })

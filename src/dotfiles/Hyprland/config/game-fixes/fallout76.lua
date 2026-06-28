@@ -4,5 +4,6 @@ local falloutRule = hl.window_rule({
         title = "Fallout76"
     },
     fullscreen = true,
-    no_anim = true
+    no_anim = false,
+    float = false
 })

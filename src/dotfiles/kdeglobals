@@ -3,19 +3,19 @@ ColorScheme=Matugen
 Name=Matugen
 
 [Colors:Window]
-BackgroundNormal=#1f1f1f
-ForegroundNormal=#e2e2e2
+BackgroundNormal=#231f17
+ForegroundNormal=#eae1d4
 
 [Colors:Button]
-BackgroundNormal=#2a2a2a
-ForegroundNormal=#e2e2e2
+BackgroundNormal=#2e2921
+ForegroundNormal=#eae1d4
 
 [Colors:Header]
-BackgroundNormal=#2a2a2a
-ForegroundNormal=#e2e2e2
+BackgroundNormal=#2e2921
+ForegroundNormal=#eae1d4
 # This specifically fixes the white top bar
-BackgroundAlternate=#1f1f1f
+BackgroundAlternate=#231f17
 
 [Colors:View]
-BackgroundNormal=#0e0e0e
-ForegroundNormal=#e2e2e2
+BackgroundNormal=#110e07
+ForegroundNormal=#eae1d4

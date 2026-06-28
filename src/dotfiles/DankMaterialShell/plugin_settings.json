@@ -25,5 +25,11 @@
   },
   "displaySettings": {
     "enabled": true
+  },
+  "dankLauncherKeys": {
+    "enabled": false
+  },
+  "nvidiaGpuMonitor": {
+    "enabled": true
   }
 }

@@ -1,5 +1,6 @@
 [colors.primary]
-background = '{{colors.background.default.hex}}'
+# Swapped to surface_container_high for a beautiful smoky glass tint
+background = '{{colors.surface_container_high.default.hex}}'
 foreground = '{{colors.on_surface.default.hex}}'
  
 [colors.cursor]
@@ -7,8 +8,8 @@ text = '{{colors.on_surface.default.hex}}'
 cursor = '{{colors.on_surface_variant.default.hex}}' 
  
 [colors.vi_mode_cursor]
-text = '{{colors.background.default.hex}}'
-cursor = '{{colors.primary.default.hex}}' 
+background = '{{colors.primary.default.hex}}' 
+text = '{{colors.surface_container_high.default.hex}}'
  
 [colors.search.matches]
 foreground = '{{colors.surface_variant.default.hex}}' 
@@ -31,8 +32,8 @@ foreground = '{{colors.surface_variant.default.hex}}'
 background = '{{colors.secondary.default.hex}}' 
  
 [colors.selection]
-text = '{{colors.background.default.hex}}'
 background = '{{colors.primary.default.hex}}'
+text = '{{colors.surface_container_high.default.hex}}'
  
  
 [colors.normal]
@@ -65,4 +66,4 @@ yellow = '#F9E2AF'
 blue = '#89B4FA' 
 magenta = '#F5C2E7' 
 cyan = '#94E2D5' 
-white = '#BAC2DE' 
+white = '#BAC2DE'

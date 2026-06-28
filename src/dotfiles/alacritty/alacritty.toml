@@ -8,8 +8,9 @@ import = "colors.toml"
 dynamic_padding = true
 decorations = "full"
 title = "Alacritty@CachyOS"
-opacity = 0.8
+opacity = 0.82
 decorations_theme_variant = "Dark"
+blur = true
 
 [window.dimensions]
 columns = 100

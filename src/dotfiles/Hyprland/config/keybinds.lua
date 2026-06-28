@@ -15,7 +15,7 @@ local mod = "SUPER"
 -- ======= Core System Actions =======
 hl.bind(mod .. " + RETURN",   hl.dsp.exec_cmd(_G.terminal), { description = "Opens your preferred terminal emulator (" .. _G.terminal .. ")" })
 hl.bind(mod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(_G.filemanager), { description = "Opens your preferred filemanager (" .. _G.filemanager .. ")" })
-hl.bind(mod .. " + Q",        hl.dsp.window.kill(), { description = "Closes (not kill) current window" })
+hl.bind(mod .. " + Q",        hl.dsp.window.close(), { description = "Closes (not kill) current window" })
 hl.bind(mod .. " + SHIFT + M", hl.dsp.exec_cmd("loginctl terminate-user ''"), { description = "Exits Hyprland by terminating the user sessions" })
 hl.bind(mod .. " + SHIFT + V", ToggleFloat, { description = "Switches current window between floating and tiling mode" })
 hl.bind(mod .. " + V",        hl.dsp.exec_cmd("dms ipc call clipboard toggle"), { description = "Clipboard toggle" })
@@ -28,13 +28,9 @@ hl.bind(mod .. " + comma",    hl.dsp.exec_cmd("dms ipc call settings toggle"), {
 hl.bind(mod .. " + P",        hl.dsp.exec_cmd("dms ipc call notepad toggle"), { description = "Toggles notepad" })
 hl.bind(mod .. " + L",        hl.dsp.exec_cmd("dms ipc call lock lock"), { description = "Activates lock" })
 hl.bind(mod .. " + X",        hl.dsp.exec_cmd("dms ipc call powermenu toggle"), { description = "Toggles PowerMenu" })
-hl.bind(mod .. " + Y",        hl.dsp.exec_cmd("dms ipc call dankdash wallpaper"), { description = "Wallpaper" })
+hl.bind(mod .. " + W",        hl.dsp.exec_cmd("dms ipc call dankdash wallpaper"), { description = "Wallpaper" })
 hl.bind(mod .. " + SHIFT + C", hl.dsp.exec_cmd("dms ipc call control-center toggle"), { description = "Control center" })
 hl.bind(mod .. " + TAB",      hl.dsp.exec_cmd("dms ipc call hypr toggleOverview"), { description = "Toggle view" })
-
--- ======= Screenshot Layout Utility =======
-hl.bind(mod .. " + SHIFT + S", hl.dsp.exec_cmd(_G.shotRegion), { description = "Creates a screenshot of an area" })
-hl.bind(mod .. " + SHIFT + P", hl.dsp.exec_cmd(_G.shotScreen), { description = "Creates a screenshot of the entire screen" })
 
 -- ======= Grouping Windows =======
 -- hl.bind(mod .. " + K",         hl.dsp.window.toggle_group(), { description = "Toggles current window group mode (ungroup all related)" })
@@ -112,6 +108,12 @@ hl.bind(mod .. " + minus", hl.dsp.window.move({ workspace = "special" }))
 hl.bind(mod .. " + equal", hl.dsp.focus({ workspace = "special" }))
 hl.bind(mod .. " + F1",    hl.dsp.focus({ workspace = "special:scratchpad" }))
 hl.bind(mod .. " + ALT + SHIFT + F1", hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
+
+-- ======= Screenshot Layout Utilities =======
+hl.bind(mod .. " + SHIFT + S",       hl.dsp.exec_cmd("dms screenshot"), { description = "Creates a screenshot of an area" })
+hl.bind("Print",                     hl.dsp.exec_cmd("dms screenshot"))
+hl.bind("CTRL + Print",              hl.dsp.exec_cmd("dms screenshot full"))
+hl.bind("ALT + Print",               hl.dsp.exec_cmd("dms screenshot window"))
 
 -- ======= Default App Access Shortcuts =======
 hl.bind(mod .. " + F", hl.dsp.exec_cmd("firefox"))

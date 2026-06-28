@@ -2,12 +2,12 @@
 -- ┃                    Global Variables & Themes                ┃
 -- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
--- Initialize a dedicated global theme table
-
 -- Generated Asset Target
 _G.image = "{{image}}"
 
--- Generated Material You Theme Colors
-<* for name, value in colors *>
-_G.{{name}} = "rgba({{value.default.hex_stripped}}ff)"
-<* endfor *>
+-- ======= Explicit Material You Theme Colors =======
+-- Solid colors (Perfect for text, foregrounds, and solid UI elements)
+
+_G.primary     = "rgba({{colors.primary.default.hex_stripped}}ff)"
+_G.outline     = "rgba({{colors.outline.default.hex_stripped}}ff)"
+_G.error_color = "rgba({{colors.error.default.hex_stripped}}ff)"

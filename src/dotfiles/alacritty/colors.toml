@@ -1,5 +1,6 @@
 [colors.primary]
-background = '#131313'
+# Swapped to surface_container_high for a beautiful smoky glass tint
+background = '#2a2a2a'
 foreground = '#e2e2e2'
  
 [colors.cursor]
@@ -7,8 +8,8 @@ text = '#e2e2e2'
 cursor = '#c6c6c6' 
  
 [colors.vi_mode_cursor]
-text = '#131313'
-cursor = '#eec148' 
+background = '#eec148' 
+text = '#2a2a2a'
  
 [colors.search.matches]
 foreground = '#474747' 
@@ -31,8 +32,8 @@ foreground = '#474747'
 background = '#d6c5a0' 
  
 [colors.selection]
-text = '#131313'
 background = '#eec148'
+text = '#2a2a2a'
  
  
 [colors.normal]
@@ -65,4 +66,4 @@ yellow = '#F9E2AF'
 blue = '#89B4FA' 
 magenta = '#F5C2E7' 
 cyan = '#94E2D5' 
-white = '#BAC2DE' 
+white = '#BAC2DE'

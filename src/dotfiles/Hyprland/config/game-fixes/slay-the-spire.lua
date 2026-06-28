@@ -4,6 +4,6 @@ local stsRule = hl.window_rule({
         title = "^(Slay the Spire)$"
     },
     fullscreen = true,
-    no_anim = true,
+    no_anim = false,
     center = true
 })
