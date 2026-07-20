@@ -1,0 +1,18 @@
+* {
+    /* Deeper, more neutral background to let the blur do the work (60% opacity) */
+    bg-base: {{colors.background.default.hex}}99; 
+    
+    /* Very subtle tint for the search bar (30% opacity) */
+    bg-surface: {{colors.surface_variant.default.hex}}4D; 
+    
+    /* Bold, solid primary color for the selected item */
+    bg-selected: {{colors.primary.default.hex}}; 
+    
+    /* The color of the text INSIDE the selected item so it stays readable */
+    text-selected: {{colors.on_primary.default.hex}}; 
+
+    /* Standard text and borders */
+    text-color: {{colors.on_surface.default.hex}};
+    border-color: {{colors.outline_variant.default.hex}}66;
+    accent-color: {{colors.primary.default.hex}};
+}

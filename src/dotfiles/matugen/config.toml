@@ -37,3 +37,20 @@ output_path = '~/.config/starship.toml'
 [templates.kdeglobals]
 input_path = '~/.config/matugen/templates/kdeglobals.toml'
 output_path = '~/.config/kdeglobals'
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = 'killall waybar && waybar &' # Dynamically updates your bar texturing live
+
+[templates.swayosd]
+input_path = '~/.config/matugen/templates/swayosd.css'
+output_path = '~/.config/swayosd/colors.css'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi.rasi'
+output_path = '~/.config/rofi/colors.rasi'
+
+[templates.wlogout]
+input_path = '~/.config/matugen/templates/wlogout.css'
+output_path = '~/.config/wlogout/colors.css'

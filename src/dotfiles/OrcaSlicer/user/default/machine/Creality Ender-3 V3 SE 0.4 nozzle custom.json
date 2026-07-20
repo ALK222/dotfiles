@@ -1,0 +1,12 @@
+{
+    "from": "User",
+    "inherits": "Creality Ender-3 V3 SE 0.4 nozzle",
+    "is_custom_defined": "0",
+    "machine_max_junction_deviation": [
+        "0.142"
+    ],
+    "name": "Creality Ender-3 V3 SE 0.4 nozzle custom",
+    "printer_settings_id": "Creality Ender-3 V3 SE 0.4 nozzle custom",
+    "support_multi_bed_types": "1",
+    "version": "2.3.1.10"
+}

@@ -10,7 +10,7 @@ hl.monitor({
     mode = "3440x1440@165",
     position = "0x0",
     scale = 1,
-    vrr = 1,
+    vrr = 3,
 })
 
 -- Side Monitor (Rotated/Transformed)

@@ -1,0 +1,16 @@
+# OrcaSlicer exclusions
+log/
+logs/
+cache/
+crashes/
+backup/
+snapshots/
+downloads/
+
+# Session/Lock files
+*.lock
+lock
+
+# Temporary/Backup files
+*.bak
+*.tmp
