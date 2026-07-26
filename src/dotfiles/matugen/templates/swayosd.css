@@ -1,0 +1,16 @@
+/* Matugen Material You Palette Variables for Swayosd */
+
+/* This natively outputs a perfectly formatted rgba(r, g, b, a) string */
+@define-color bg_bar            rgba({{colors.surface.default.red}}, {{colors.surface.default.green}}, {{colors.surface.default.blue}}, 0.75);
+@define-color bg_card           {{colors.surface_container.default.rgb}};
+
+@define-color text_main         {{colors.on_surface.default.rgb}};
+@define-color text_muted        {{colors.on_surface_variant.default.rgb}};
+
+/* Core Accent Highlights */
+@define-color primary           {{colors.primary.default.rgb}};
+@define-color on_primary        {{colors.on_primary.default.rgb}};
+@define-color accent            {{colors.secondary.default.rgb}};
+
+/* Alerts and Warnings */
+@define-color critical          {{colors.error.default.rgb}};

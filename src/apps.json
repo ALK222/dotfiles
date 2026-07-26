@@ -6,7 +6,9 @@
             "is_folder": true,
             "source_path": "~/.config/hypr",
             "laptop_desktop_split": {
-                "split_files": ["config/monitor.lua"]
+                "split_files": [
+                    "config/monitor.lua"
+                ]
             }
         },
         {
@@ -14,7 +16,9 @@
             "is_folder": true,
             "source_path": "~/.config/DankMaterialShell",
             "laptop_desktop_split": {
-                "split_files": ["settings.json"]
+                "split_files": [
+                    "settings.json"
+                ]
             }
         },
         {
@@ -82,25 +86,30 @@
             "is_folder": true,
             "source_path": "/etc/sddm.conf.d"
         },
-	{
-	    "app_name": "sddm_faces",
-	    "is_folder": true,
-	    "source_path": "/usr/share/sddm/faces"
-	},
+        {
+            "app_name": "sddm_faces",
+            "is_folder": true,
+            "source_path": "/usr/share/sddm/faces"
+        },
         {
             "app_name": "backgrounds",
             "is_folder": true,
             "source_path": "~/Imágenes/Backgrounds"
         },
-	{
-	    "app_name": "custom-commands",
-	    "is_folder": true,
-	    "source_path": "~/.config/custom-commands"
-	},
-    {
-        "app_name": "fastfetch",
-        "is_folder": true,
-        "source_path": "~/.config/fastfetch"
-    }
+        {
+            "app_name": "custom-commands",
+            "is_folder": true,
+            "source_path": "~/.config/custom-commands"
+        },
+        {
+            "app_name": "fastfetch",
+            "is_folder": true,
+            "source_path": "~/.config/fastfetch"
+        },
+        {
+            "app_name": "OrcaSlicer",
+            "is_folder": true,
+            "source_path": "~/.config/OrcaSlicer"
+        }
     ]
 }
