@@ -10,7 +10,7 @@ require("config/autostart")
 require("config/environment")
 require("config/input")
 require("config/keybinds")
-require("config/monitor")
+require("dms/outputs")
 require("config/variables")
 require("config/windowrules")
 

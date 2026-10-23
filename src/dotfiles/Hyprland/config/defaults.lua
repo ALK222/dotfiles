@@ -3,5 +3,5 @@
 -- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
 -- General Applications
-_G.filemanager = "dolphin"
+_G.filemanager = "hyprfm"
 _G.terminal    = "alacritty"

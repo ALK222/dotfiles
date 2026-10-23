@@ -1,0 +1,20 @@
+[ProfileManager]
+# Primary accent for main devices (Keyboards, RAM, GPU)
+PrimaryColor={{colors.primary.default.hex}}
+
+# RGB integer components for OpenRGB engines requiring discrete channels
+PrimaryR={{colors.primary.default.red}}
+PrimaryG={{colors.primary.default.green}}
+PrimaryB={{colors.primary.default.blue}}
+
+# Secondary / Background lighting accent
+SecondaryColor={{colors.secondary.default.hex}}
+SecondaryR={{colors.secondary.default.red}}
+SecondaryG={{colors.secondary.default.green}}
+SecondaryB={{colors.secondary.default.blue}}
+
+# Tertiary accent color
+TertiaryColor={{colors.tertiary.default.hex}}
+TertiaryR={{colors.tertiary.default.red}}
+TertiaryG={{colors.tertiary.default.green}}
+TertiaryB={{colors.tertiary.default.blue}}

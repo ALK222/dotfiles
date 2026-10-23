@@ -8,11 +8,11 @@ hl.env("QT_CURSOR_SIZE", 24)
 hl.env("QT_QPA_PLATFORMTHEME_QT6", "qt6ct")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("xx-color-management-v4", "true")
-hl.env("PROTON_ENABLE_WAYLAND", 0)
+hl.env("PROTON_ENABLE_WAYLAND", 1)
 hl.env("WLR_NO_HARDWARE_CURSORS", 1)
 hl.env("WLR_RENDERER_ALLOW_SOFTWARE", 1)
 hl.env("XDG_MENU_PREFIX", "arch-")
-
+hl.env("TERMINAL", "alacritty")
 -- NVIDIA Specific Configuration
 hl.env("PROTON_ENABLE_NVAPI", 1)
 hl.env("PROTON_FORCE_NVAPI", 1)
@@ -30,7 +30,15 @@ hl.env("PROTON_DLSS_UPGRADE", 1)
 hl.env("DXVK_NVAPI_DRS_NGX_DLSS_SR_OVERRIDE", "on")
 hl.env("DXVK_NVAPI_DRS_NGX_DLSS_RR_OVERRIDE", "on")
 hl.env("DXVK_NVAPI_DRS_NGX_DLSS_FG_OVERRIDE", "on")
+hl.env("RADV_PERFTEST","gpl")
+hl.env("FOSSILIZE_THREAD_POOL_SIZE",4)
+
+-- Render shit
+hl.config({render = {
+    direct_scanout = true,
+}})
 
 -- Commented-out Render Presets
 -- hl.env("DXVK_NVAPI_DRS_NGX_DLSS_SR_OVERRIDE_RENDER_PRESET_SELECTION", "render_preset_latest")
 -- hl.env("DXVK_NVAPI_DRS_NGX_DLSS_RR_OVERRIDE_RENDER_PRESET_SELECTION", "render_preset_latest")
+

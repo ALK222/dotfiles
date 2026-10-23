@@ -40,8 +40,8 @@ restore_single_file() {
     local split_config="$3"
     local app_source="$dotfiles_folder/$app_name"
 
-    local cp_cmd="cp -a"   # <=== changed from cp
-    requires_sudo "$source_path" && { ensure_sudo; cp_cmd="sudo cp -a"; }
+    local cp_cmd="cp -f"   # <=== changed from cp
+    requires_sudo "$source_path" && { ensure_sudo; cp_cmd="sudo cp -f"; }
 
     if [ -n "$split_config" ]; then
         echo "$split_config" | jq -r '.split_files[]' | while IFS= read -r split_file; do

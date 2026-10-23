@@ -3,19 +3,22 @@ ColorScheme=Matugen
 Name=Matugen
 
 [Colors:Window]
-BackgroundNormal=#231f17
-ForegroundNormal=#eae1d4
+# 180 out of 255 gives roughly 70% opacity for a nice frosted glass effect
+BackgroundNormal=31,31,31,180
+ForegroundNormal=#e2e2e2
 
 [Colors:Button]
-BackgroundNormal=#2e2921
-ForegroundNormal=#eae1d4
+# 150 out of 255 gives a translucent button highlight layout
+BackgroundNormal=42,42,42,150
+ForegroundNormal=#e2e2e2
 
 [Colors:Header]
-BackgroundNormal=#2e2921
-ForegroundNormal=#eae1d4
+BackgroundNormal=42,42,42,150
+ForegroundNormal=#e2e2e2
 # This specifically fixes the white top bar
-BackgroundAlternate=#231f17
+BackgroundAlternate=31,31,31,180
 
 [Colors:View]
-BackgroundNormal=#110e07
-ForegroundNormal=#eae1d4
+# Deeper transparency for file list viewports (like Dolphin's file panel)
+BackgroundNormal=14,14,14,140
+ForegroundNormal=#e2e2e2

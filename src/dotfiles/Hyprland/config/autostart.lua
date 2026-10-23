@@ -10,11 +10,10 @@ hl.on("hyprland.start", function ()
 
     -- Credentials & Authentication (Migrated to native Hypr Polkit)
     hl.exec_cmd("uwsm app -- gnome-keyring-daemon --start --components=secrets")
-    hl.exec_cmd("uwsm app -- swayosd-server")
 
     -- Hardware & Bluetooth Applets
     hl.exec_cmd("uwsm app -- blueman-applet")
-    hl.exec_cmd("openrgb --startminimized -p ~/.config/OpenRGB/great-wave.orp &")
+    hl.exec_cmd("openrgb --startminimized -p ~/.config/OpenRGB/matugen.orp &")
     hl.exec_cmd("sleep 2 && killall nm-applet")
 
     hl.exec_cmd("dms run &")
